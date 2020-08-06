@@ -117,6 +117,7 @@ const unsigned int sys_dvbc_annex_ac_props[] = {
 const unsigned int sys_dvbc_annex_b_props[] = {
 	DTV_FREQUENCY,
 	DTV_MODULATION,
+	DTV_SYMBOL_RATE,
 	0
 };
 
