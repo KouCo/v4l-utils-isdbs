@@ -801,7 +801,10 @@ int __dvb_fe_get_parms(struct dvb_v5_fe_parms *p)
 		break;
 	case SYS_ATSC:
 	case SYS_ATSCMH:
+		dvb_fe_store_parm(&parms->p, DTV_MODULATION, v3_parms.u.vsb.modulation);
+		break;
 	case SYS_DVBC_ANNEX_B:
+		dvb_fe_store_parm(&parms->p, DTV_SYMBOL_RATE, v3_parms.u.qam.symbol_rate);
 		dvb_fe_store_parm(&parms->p, DTV_MODULATION, v3_parms.u.vsb.modulation);
 		break;
 	case SYS_DVBT:
@@ -969,7 +972,10 @@ int __dvb_fe_set_parms(struct dvb_v5_fe_parms *p)
 		break;
 	case SYS_ATSC:
 	case SYS_ATSCMH:
+		dvb_fe_retrieve_parm(&tmp_parms.p, DTV_MODULATION, &v3_parms.u.vsb.modulation);
+		break;
 	case SYS_DVBC_ANNEX_B:
+		dvb_fe_retrieve_parm(&tmp_parms.p, DTV_SYMBOL_RATE, &v3_parms.u.qam.symbol_rate);
 		dvb_fe_retrieve_parm(&tmp_parms.p, DTV_MODULATION, &v3_parms.u.vsb.modulation);
 		break;
 	case SYS_DVBT:
@@ -1595,7 +1601,10 @@ int dvb_fe_get_event(struct dvb_v5_fe_parms *p)
 		break;
 	case SYS_ATSC:
 	case SYS_ATSCMH:
+		dvb_fe_retrieve_parm(&parms->p, DTV_MODULATION, &event.parameters.u.vsb.modulation);
+		break;
 	case SYS_DVBC_ANNEX_B:
+		dvb_fe_retrieve_parm(&parms->p, DTV_SYMBOL_RATE, &event.parameters.u.qam.symbol_rate);
 		dvb_fe_retrieve_parm(&parms->p, DTV_MODULATION, &event.parameters.u.vsb.modulation);
 		break;
 	case SYS_DVBT:
