@@ -1186,6 +1186,7 @@ static void __dvb_add_update_transponders(struct dvb_v5_fe_parms_priv *parms,
 
 	switch (parms->p.current_sys) {
 	case SYS_DVBC_ANNEX_A:
+	case SYS_DVBC_ANNEX_B:
 	case SYS_DVBC_ANNEX_C:
 		dvb_table_nit_descriptor_handler(
 				&parms->p, dvb_scan_handler->nit,
